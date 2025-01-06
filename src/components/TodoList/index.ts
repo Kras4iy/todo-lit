@@ -1,4 +1,4 @@
-import { css, html, LitElement, PropertyValues } from "lit";
+import { css, html, LitElement, nothing, PropertyValues } from "lit";
 import { customElement, property, query, state } from "lit/decorators.js";
 
 import { type TTodo } from "../../types";
@@ -66,9 +66,9 @@ export class TodoList extends LitElement {
                         </td>
                         <td>
                             <div class="actions">
-                                ${!el.isFinished ? html`<button @click=${() => this.onCheck(el)}>finish</button>` : ''}
+                                ${!el.isFinished ? html`<button @click=${() => this.onCheck(el)}>finish</button>` : nothing}
                                 <button @click=${() => this.onDelete(el)} >delete</button>
-                                ${!el.isFinished ? html`<button @click=${() => this.onStartEditing(el.id)}>edit</button>` : ''}
+                                ${!el.isFinished ? html`<button @click=${() => this.onStartEditing(el.id)}>edit</button>` : nothing}
                             </div>
                         </td>
                     </tr>
