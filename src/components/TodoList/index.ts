@@ -66,7 +66,7 @@ export class TodoList extends LitElement {
                         </td>
                         <td>
                             <div class="actions">
-                                <button @click=${() => this.onCheck(el)}>finish</button>
+                                ${!el.isFinished ? html`<button @click=${() => this.onCheck(el)}>finish</button>` : ''}
                                 <button @click=${() => this.onDelete(el)} >delete</button>
                                 ${!el.isFinished ? html`<button @click=${() => this.onStartEditing(el.id)}>edit</button>` : ''}
                             </div>
